@@ -1,98 +1,107 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>文字滚动：公众号AlbertYang</title>
-		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
-		<style type="text/css">
-			* {
-				margin: 0;
-				padding: 0;
-			}
 
-			body {
-				font: 12px/1 '微软雅黑';
-				background: #fff;
-			}
+<head>
+    <meta charset="UTF-8">
+    <title>文字滚动</title>
+    <!-- <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script> -->
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font: 12px/1 '微软雅黑';
+            background: #fff;
+        }
+        
+        .main {
+            width: 600px;
+            padding: 10px;
+            margin: 0 auto;
+        }
+        
+        .wrap {
+            padding-top: 10px;
+            overflow: hidden;
+            width: 150px;
+            cursor: pointer;
+        }
+        
+        .scroll {
+            width: 1200px;
+            height: 30px;
+            line-height: 30px;
+            overflow: hidden;
+        }
+    </style>
+    <script>
+        function audioTitleScroll() {
+            console.log(22222);
+            var audio_title = $(".wrap");
+            audio_title.each(function() {
+                titleScroll(this);
+            });
 
-			.main {
-				width: 600px;
-				padding: 10px;
-				margin: 0 auto;
-			}
+            function titleScroll(wrap) {
+                var div = wrap.getElementsByTagName('div')[0];
+                var span = div.getElementsByTagName('span')[0];
+                var span_w = 1000;
+                if (span) {
+                    span_w = span.offsetWidth;
+                }
+                var div_w = wrap.offsetWidth;
+                if (div_w > span_w || div.getElementsByTagName('span').length >= 2) {
+                    console.log(777);
+                    return false;
+                }
+                console.log(666);
+                div.innerHTML += div.innerHTML;
+                var timer = setInterval(goLeft, 20);
+                $(wrap).hover(function() {
+                    clearInterval(timer);
+                }, function() {
+                    timer = setInterval(goLeft, 20);
+                });
 
-			.wrap {
-				padding-top: 10px;
-				overflow: hidden;
-				width: 150px;
-				cursor: pointer;
-			}
+                function goLeft() {
+                    if (span_w <= wrap.scrollLeft) {
+                        wrap.scrollLeft -= span_w;
+                    } else {
+                        wrap.scrollLeft++;
+                    }
+                }
+            }
+        };
+        $(function() {
+            audioTitleScroll();
+        })
+    </script>
+</head>
 
-			.scroll {
-				width: 1200px;
-				height: 30px;
-				line-height: 30px;
-				overflow: hidden;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="main">
-			<div class="wrap">
-				<div class="scroll">
-					<span>请您耐心等待~</span>
-				</div>
-			</div>
+<body>
+    <div class="main">
+        <div class="wrap">
+            <div class="scroll">
+                <span>请您耐心等待~</span>
+            </div>
+        </div>
 
-			
+        <div class="wrap">
+            <div class="scroll">
+                <span>请您耐心等待~请您耐心等待~请您耐心等待~请您耐心等待~请您耐心等待~</span>
+            </div>
+        </div>
 
-			<div class="wrap">
-				<div class="scroll">
-					<span>由于 发布</span>
-				</div>
-			</div>
-		</div>
-		<script>
-			function audioTitleScroll() {
-				console.log(22222);
-				var audio_title = $(".wrap");
-				audio_title.each(function() {
-					titleScroll(this);
-				});
+        <div class="wrap">
+            <div class="scroll">
+                <span>由于 发布</span>
+            </div>
+        </div>
+    </div>
 
-				function titleScroll(wrap) {
-					var div = wrap.getElementsByTagName('div')[0];
-					var span = div.getElementsByTagName('span')[0];
-					var span_w = 1000;
-					if (span) {
-						span_w = span.offsetWidth;
-					}
-					var div_w = wrap.offsetWidth;
-					if (div_w > span_w || div.getElementsByTagName('span').length >= 2) {
-						console.log(777);
-						return false;
-					}
-					console.log(666);
-					div.innerHTML += div.innerHTML;
-					var timer = setInterval(goLeft, 20);
-					$(wrap).hover(function() {
-						clearInterval(timer);
-					}, function() {
-						timer = setInterval(goLeft, 20);
-					});
+</body>
 
-					function goLeft() {
-						if (span_w <= wrap.scrollLeft) {
-							wrap.scrollLeft -= span_w;
-						} else {
-							wrap.scrollLeft++;
-						}
-					}
-				}
-			};
-			$(function() {
-				audioTitleScroll();
-			})
-		</script>
-	</body>
 </html>
