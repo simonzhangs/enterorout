@@ -48,6 +48,7 @@ span {
     left: 105px;
     font-size: 14px;
     line-height: 49px;
+    /* border: 1px solid greenyellow; */
 }
 
 p {
@@ -87,7 +88,7 @@ button {
     left: 80px;
 }
 
-.wrap {
+/* .wrap {
     float: right;
     left: 100px;
     padding-top: 10px;
@@ -114,4 +115,33 @@ button {
     color: rgb(0, 196, 164);
     font-weight: 200;
     font-size: 16px;
+} */
+
+.wrap {
+    position: relative;
+    float: right;
+    right: 40px;
+    padding-top: 10px;
+    overflow: hidden;
+    width: 130px;
+    cursor: pointer;
+    border: 1px solid green;
+}
+
+.scroll {
+    position: relative;
+    width: 800px;
+    height: 30px;
+    left: -50px;
+    line-height: 30px;
+    /* overflow: hidden; */
+    border: 1px solid pink;
+    color: rgb(0, 196, 164);
+}
+.scroll span{
+    
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    border: 1px solid greenyellow;
 }

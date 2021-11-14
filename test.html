@@ -13,7 +13,7 @@
         }
         
         body {
-            font: 12px/1 '微软雅黑';
+            font: 14px/1 '微软雅黑';
             background: #fff;
         }
         
@@ -21,6 +21,7 @@
             width: 600px;
             padding: 10px;
             margin: 0 auto;
+            border: 1px solid black;
         }
         
         .wrap {
@@ -28,6 +29,7 @@
             overflow: hidden;
             width: 150px;
             cursor: pointer;
+            border: 1px solid green;
         }
         
         .scroll {
@@ -35,6 +37,7 @@
             height: 30px;
             line-height: 30px;
             overflow: hidden;
+            border: 1px solid pink;
         }
     </style>
     <script>
@@ -47,12 +50,18 @@
 
             function titleScroll(wrap) {
                 var div = wrap.getElementsByTagName('div')[0];
+                console.log(div);
                 var span = div.getElementsByTagName('span')[0];
+                console.log(span);
+
                 var span_w = 1000;
                 if (span) {
                     span_w = span.offsetWidth;
                 }
+                console.log(span_w);
+
                 var div_w = wrap.offsetWidth;
+                console.log(div_w);
                 if (div_w > span_w || div.getElementsByTagName('span').length >= 2) {
                     console.log(777);
                     return false;
@@ -83,23 +92,15 @@
 
 <body>
     <div class="main">
-        <div class="wrap">
-            <div class="scroll">
-                <span>请您耐心等待~</span>
-            </div>
-        </div>
+        
 
         <div class="wrap">
             <div class="scroll">
-                <span>请您耐心等待~请您耐心等待~请您耐心等待~请您耐心等待~请您耐心等待~</span>
+                <span>请您耐心等待~请您耐心wait</span>
             </div>
         </div>
 
-        <div class="wrap">
-            <div class="scroll">
-                <span>由于 发布</span>
-            </div>
-        </div>
+        
     </div>
 
 </body>

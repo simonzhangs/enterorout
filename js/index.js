@@ -5,15 +5,14 @@ window.addEventListener('load', function() {
     // animate(registerTime.children[0],100);
     var span = scroll.children[0];
 
-    circle();
+
     // window.setTimeout(function() {clock.display(registerTime);}, 1000);
 
-    function circle() {
-        var clock = new Clock();
-        span.innerHTML = clock.toDetailDate();
-        audioTitleScroll();
-    }
-    var timer = setInterval(circle, 1000);
+    var clock = new Clock();
+    span.innerHTML = clock.toDetailDate();
+ 
+    audioTitleScroll();
+
 
     function Clock() {
         var date = new Date();
@@ -34,7 +33,7 @@ window.addEventListener('load', function() {
         };
 
         this.toDetailDate = function() {
-            return this.year + "-" + this.month + "-" + this.date + " " + this.hour + ":" + this.minute + ":" + this.second;
+            return this.year + "-" + this.month + "-" + this.date + " " + this.hour + ":" + this.minute + ":" + this.second+"        ";
         };
 
     }
@@ -54,7 +53,11 @@ window.addEventListener('load', function() {
             if (span) {
                 span_w = span.offsetWidth;
             }
+            
             var div_w = wrap.offsetWidth;
+            console.log(span_w);
+            console.log(div_w);
+         
             if (div_w > span_w || div.getElementsByTagName('span').length >= 2) {
                 console.log(777);
                 return false;
